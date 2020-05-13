@@ -1,13 +1,32 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+const Montre = (props) => {
+  const currentDate = new Date();
+  const heures = currentDate.getHours();
+  const minutes = currentDate.getMinutes();
+  const secondes = currentDate.getSeconds();
+
+  const [date, setDate] = useState([heures, minutes, secondes]);
+  useEffect(() => {
+      setTimeout(() => {setDate([heures, minutes, secondes])} , 1000)
+  })
+
+  return (<h1>{heures} : {minutes} : {secondes}</h1>);
+}
+
+
+
+
+
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p> bienvenue sur le site web de moi</p>
+        <Montre/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -23,5 +42,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
