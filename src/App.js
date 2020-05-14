@@ -1,34 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
-
-const Montre = (props) => {
-  const currentDate = new Date();
-  const heures = currentDate.getHours();
-  const minutes = currentDate.getMinutes();
-  const secondes = currentDate.getSeconds();
-
-  const [date, setDate] = useState([heures, minutes, secondes]);
-  useEffect(() => {
-      setTimeout(() => {setDate([heures, minutes, secondes])} , 1000)
-  })
-
-  return (<h1>{heures} : {minutes} : {secondes}</h1>);
-}
-
-
-
-
-
+import { Montre } from './Montre';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Montre/>
+           <div className="montre">
+             <Montre/>
+           </div>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          TimeRoad to become Dev
         </p>
         <a
           className="App-link"
@@ -36,7 +18,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn Xavier
         </a>
       </header>
     </div>
